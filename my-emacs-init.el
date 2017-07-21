@@ -183,6 +183,37 @@
   (global-git-gutter-mode +1)
   (add-hook 'focus-in-hook 'git-gutter:update-all-windows))
 
+
+;; ido stuff
+(use-package flx-ido
+  :ensure t)
+
+(use-package ido
+  :config
+  (progn
+    (ido-mode t)
+    (ido-everywhere t)
+    (flx-ido-mode t)
+    (setq ido-enable-flex-matching t)
+    (setq ido-use-faces nil)))
+
+(use-package ido-vertical-mode
+  :ensure t
+  :config
+  (progn
+    (ido-vertical-mode 1)
+    (setq ido-vertical-define-keys #'C-n-and-C-p-only)))
+
+(use-package ido-ubiquitous
+  :ensure t
+  :config
+  (ido-ubiquitous-mode 1))
+
+(use-package smex
+  :ensure t
+  :init
+  (smex-initialize))
+
 ;;
 ;; -- Major Modes --
 ;;
