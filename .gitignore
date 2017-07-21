@@ -1,0 +1,8 @@
+# OSX
+.DS_Store
+
+# Desktop file
+.emacs.desktop*
+
+# Packages
+elpa
