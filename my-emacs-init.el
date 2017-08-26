@@ -106,9 +106,6 @@
 	(add-to-list 'completion-ignored-extensions x))
       '(".gz" ".pyc" ".elc" ".exe"))
 
-;; useful for camelCase
-(subword-mode t)
-
 ;; delete selection, insert text
 (delete-selection-mode t)
 
