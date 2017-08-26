@@ -302,5 +302,7 @@
 (global-set-key (kbd "<M-s-up>") 'windmove-up)
 (global-set-key (kbd "<M-s-down>") 'windmove-down)
 
+;; sorting
+(global-set-key (kbd "M-s") #'sort-lines)
 
 ;;; my-emacs-init.el ends here
