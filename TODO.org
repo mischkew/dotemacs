@@ -1,0 +1,9 @@
+- python highlighting using flycheck and elpy:
+- https://elpy.readthedocs.io/en/latest/ide.html#syntax-checking
+- python-check-command
+
+
+- Configure powerline for Github Theme
+
+
+
