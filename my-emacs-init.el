@@ -134,6 +134,12 @@
 ;; save sessions and buffers
 (desktop-save-mode 1)
 (setq desktop-restore-eager 5)
+
+(add-hook 'prog-mode-hook 'linum-mode)	       ; show line numbers
+(setq linum-format "%4d \u2502 ")	       ; add space between numbers and code
+(add-hook 'prog-mode-hook 'column-number-mode) ; show column numbers
+
+
 ;;
 ;; -- Minor Modes --
 ;;
