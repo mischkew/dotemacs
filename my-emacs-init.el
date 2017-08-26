@@ -169,11 +169,14 @@
   :config
   (editorconfig-mode 1))
 
-;; emacs python ide
-(use-package elpy
+;; aggressive-indent
+;; Keeps code correctly indented during editing.
+(use-package aggressive-indent
   :ensure t
-  :config
-  (elpy-enable))
+  :commands aggressive-indent-mode
+  :init
+  (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+  (add-hook 'lisp-mode-hook #'aggressive-indent-mode))
 
 ;; fringe
 (use-package fringe-helper
@@ -251,6 +254,22 @@
             '(lambda ()
                (setq fill-column 79)))
   (add-to-list 'auto-mode-alist '("\\.py" . python-mode)))
+
+;; emacs python ide
+(use-package elpy
+  :ensure t
+  :defer 2
+  :config
+  (progn
+    ;; Use Flycheck instead of Flymake
+    (when (require 'flycheck nil t)
+      (remove-hook 'elpy-modules 'elpy-module-flymake)
+      (remove-hook 'elpy-modules 'elpy-module-yasnippet)
+      (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
+      (add-hook 'elpy-mode-hook 'flycheck-mode))
+    (elpy-enable)
+    ;; jedi is great
+    (setq elpy-rpc-backend "jedi")))
 
 ;; Git with emacs
 (use-package magit
