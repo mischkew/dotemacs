@@ -25,12 +25,6 @@
 ;; Add Autofill mode to mode hooks.
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
-;; Show line number in the mode line.
-(line-number-mode 1)
-
-;; Show column number in the mode line.
-(column-number-mode 1)
-
 ;; Enable syntax highlighting. This will also highlight lines that
 ;; form a region.
 (global-font-lock-mode 1)
