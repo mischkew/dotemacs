@@ -148,6 +148,12 @@
 (desktop-save-mode 1)
 (setq desktop-restore-eager 5)
 
+;; package manager
+(use-package paradox
+  :ensure t
+  :config
+  (setq paradox-execute-asynchronously t))
+
 ;; improve emacs bottom line
 (use-package airline-themes
   :ensure t
