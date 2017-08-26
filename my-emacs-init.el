@@ -144,9 +144,6 @@
 ;; -- Minor Modes --
 ;;
 
-;; save sessions and buffers
-(desktop-save-mode 1)
-(setq desktop-restore-eager 5)
 
 ;; package manager
 (use-package paradox
