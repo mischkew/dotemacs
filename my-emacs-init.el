@@ -16,6 +16,9 @@
 ;; set theme depending on your mood
 (load-theme 'github t)
 
+;; turn off the bell
+(setq ring-bell-function 'ignore)
+
 ;; Set the number to the number of columns to use.
 (setq-default fill-column 79)
 
