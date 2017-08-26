@@ -188,11 +188,11 @@
 
 (use-package git-gutter
   :ensure t
+  :diminish git-gutter-mode
   :config
   (require 'git-gutter-fringe)
   (global-git-gutter-mode +1)
   (add-hook 'focus-in-hook 'git-gutter:update-all-windows))
-
 
 ;; ido stuff
 (use-package flx-ido
