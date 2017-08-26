@@ -297,9 +297,10 @@
 (global-set-key (kbd "C-x C-k") #'kill-current-buffer)
 
 ;; windmove
-(global-set-key (kbd "C-c b") 'windmove-left)
-(global-set-key (kbd "C-c f") 'windmove-right)
-(global-set-key (kbd "C-c p") 'windmove-up)
-(global-set-key (kbd "C-c n") 'windmove-down)
+(global-set-key (kbd "<M-s-left>") 'windmove-left)
+(global-set-key (kbd "<M-s-right>") 'windmove-right)
+(global-set-key (kbd "<M-s-up>") 'windmove-up)
+(global-set-key (kbd "<M-s-down>") 'windmove-down)
+
 
 ;;; my-emacs-init.el ends here
