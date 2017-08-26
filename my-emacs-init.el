@@ -284,6 +284,11 @@
   ("C-x C-g" . magit-status)
   ("C-c C-a" . magit-commit-amend))
 
+;; move regions or lines up/ down
+(use-package move-text
+  :ensure t
+  :bind (("<C-S-up>" . move-text-up)
+         ("<C-S-down>" . move-text-down)))
 ;;
 ;; -- Function --
 ;;
