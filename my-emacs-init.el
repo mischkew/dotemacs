@@ -126,10 +126,10 @@
       `((".*" ,user-temporary-file-directory t)))
 
 ;; start server in window mode
-(when (display-graphic-p)
-  (unless (and (fboundp 'server-running-p)
-             (server-running-p))
-    (server-start)))
+;; (when (display-graphic-p)
+;;   (unless (and (fboundp 'server-running-p)
+;;              (server-running-p))
+;;     (server-start)))
 
 ;;
 ;; -- Minor Modes --
