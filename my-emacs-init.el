@@ -131,6 +131,9 @@
 ;;              (server-running-p))
 ;;     (server-start)))
 
+;; save sessions and buffers
+(desktop-save-mode 1)
+(setq desktop-restore-eager 5)
 ;;
 ;; -- Minor Modes --
 ;;
