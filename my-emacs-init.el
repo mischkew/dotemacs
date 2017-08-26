@@ -249,7 +249,7 @@
   :config
   (add-hook 'python-mode-hook
             '(lambda ()
-               (setq fill-column 80)))
+               (setq fill-column 79)))
   (add-to-list 'auto-mode-alist '("\\.py" . python-mode)))
 
 ;; Git with emacs
