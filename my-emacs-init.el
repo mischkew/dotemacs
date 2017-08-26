@@ -289,6 +289,19 @@
   :ensure t
   :bind (("<C-S-up>" . move-text-up)
          ("<C-S-down>" . move-text-down)))
+
+;; syntax checking and linting
+(use-package flycheck
+  :ensure t
+  :diminish ""
+  :init
+  (progn
+    (setq flycheck-indication-mode 'left-fringe)
+    ;; disable the annoying doc checker
+    (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+  :config
+  (global-flycheck-mode 1))
+
 ;;
 ;; -- Function --
 ;;
