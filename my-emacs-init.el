@@ -109,6 +109,9 @@
 ;; delete selection, insert text
 (delete-selection-mode t)
 
+;; make M-Tab obsolete
+;; (setq tab-always-indent ‘complete)
+
 ;; write temp files to directory to not clutter the filesystem
 (defvar user-temporary-file-directory
   (concat temporary-file-directory user-login-name "/"))
