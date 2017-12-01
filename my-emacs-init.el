@@ -54,7 +54,7 @@
 ;; no toolbar
 (when (functionp 'tool-bar-mode)
   (tool-bar-mode -1))
-  
+
 ;; disable scroll bars
 (if window-system
     (progn
@@ -226,6 +226,11 @@
   :ensure t
   :init
   (smex-initialize))
+
+(use-package disable-mouse
+  :ensure t
+  :init
+  (global-disable-mouse-mode))
 
 ;;
 ;; -- Major Modes --
