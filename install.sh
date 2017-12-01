@@ -37,7 +37,9 @@ install_emacs_osx() {
 
 install_emacs_linux() {
     echo "Installing emacs package..."
-    sudo apt-get install emacs24
+    sudo add-apt-repository ppa:kelleyk/emacs
+    sudo apt-get update
+    sudo apt-get install emacs25
     echo "$DONE"
 }
 
