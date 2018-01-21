@@ -251,6 +251,12 @@
 	 ("\\.markdown\\'" . markdown-mode))
     :init (setq markdown-command "multimarkdown"))
 
+;; YAML files
+(use-package yaml-mode
+  :ensure t
+  :mode (("\\.yml\\'" . yaml-mode)
+	 ("\\.yaml\\'" . yaml-mode)))
+
 ;; Python major mode
 (use-package python-mode
   :ensure t
