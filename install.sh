@@ -43,7 +43,14 @@ install_emacs_linux() {
     echo "$DONE"
 }
 
+install_emacs_packages() {
+    echo "Install non-melpa emacs packages from GitHub"
+    git submodule update --init vendor/flycheck-local-flake8
+    echo "$DONE"
+}
+
 install() {
     install_emacs
+    install_emacs_packages
     link_emacs_to_emacsd
 }

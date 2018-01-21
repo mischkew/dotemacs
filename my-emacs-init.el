@@ -16,6 +16,9 @@
 ;; -- General Stuff --
 ;;
 
+;; set emacs exec path
+(setq exec-path (cons "~/.pyenv/shims" exec-path))
+
 ;; github theme (light)
 (use-package github-theme
   :ensure t)
@@ -261,6 +264,21 @@
   :init
   (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
   (add-hook 'lisp-mode-hook #'aggressive-indent-mode))
+
+;; -- Python --
+
+(use-package pyenv-mode
+  :ensure t
+  :init
+  (pyenv-mode))
+
+;; load the local setup.cfg for flake8 python checking
+(use-package flycheck-local-flake8
+  :load-path "vendor/flycheck-local-flake8"
+  :init
+  (require 'flycheck-local-flake8)
+  (add-hook 'flycheck-before-syntax-check-hook
+	    #'flycheck-local-flake8/flycheck-virtualenv-set-python-executables 'local))
 
 ;; -- Lisp --
 

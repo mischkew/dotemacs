@@ -1,0 +1,3 @@
+[submodule "vendor/flycheck-local-flake8"]
+	path = vendor/flycheck-local-flake8
+	url = https://github.com/rmuslimov/flycheck-local-flake8
