@@ -64,9 +64,6 @@
   (require 'use-package))
 (setq use-package-verbose t)
 
-(use-package diminish)             ;; if you use :diminish
-(require 'bind-key)                ;; if you use any :bind variant
-
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.

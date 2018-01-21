@@ -3,6 +3,16 @@
 ;;; Code:
 
 ;;
+;; -- Use Package Addons --
+;;
+
+(use-package delight
+  :ensure t)
+
+(use-package bind-key
+  :ensure t)
+
+;;
 ;; -- General Stuff --
 ;;
 
@@ -144,7 +154,6 @@
 ;; -- Minor Modes --
 ;;
 
-
 ;; package manager
 (use-package paradox
   :ensure t
@@ -165,18 +174,9 @@
 ;; support cross-editor code formatting using .editorconfig files
 (use-package editorconfig
   :ensure t
-  :diminish editorconfig-mode
+  :delight
   :config
   (editorconfig-mode 1))
-
-;; aggressive-indent
-;; Keeps code correctly indented during editing.
-(use-package aggressive-indent
-  :ensure t
-  :commands aggressive-indent-mode
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-  (add-hook 'lisp-mode-hook #'aggressive-indent-mode))
 
 ;; fringe
 (use-package fringe-helper
@@ -191,7 +191,7 @@
 
 (use-package git-gutter
   :ensure t
-  :diminish git-gutter-mode
+  :delight
   :config
   (require 'git-gutter-fringe)
   (global-git-gutter-mode +1)
@@ -229,8 +229,43 @@
 
 (use-package disable-mouse
   :ensure t
+  :delight global-disable-mouse-mode
   :init
   (global-disable-mouse-mode))
+
+;; move regions or lines up/ down
+(use-package move-text
+  :ensure t
+  :bind (("<C-S-up>" . move-text-up)
+          ("<C-S-down>" . move-text-down)))
+
+;; syntax checking and linting
+(use-package flycheck
+  :ensure t
+  :delight
+  :init
+  (progn
+    (setq flycheck-indication-mode 'left-fringe)
+    ;; disable the annoying doc checker
+    (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+  :config
+  (global-flycheck-mode 1))
+
+;; -- General Coding --
+
+;; aggressive-indent
+;; Keeps code correctly indented during editing.
+(use-package aggressive-indent
+  :ensure t
+  :commands aggressive-indent-mode
+  :init
+  (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+  (add-hook 'lisp-mode-hook #'aggressive-indent-mode))
+
+;; -- Lisp --
+
+(use-package autorevert
+  :delight auto-revert-mode)
 
 ;;
 ;; -- Major Modes --
@@ -294,24 +329,6 @@
   :bind
   ("C-x C-g" . magit-status)
   ("C-c C-a" . magit-commit-amend))
-
-;; move regions or lines up/ down
-(use-package move-text
-  :ensure t
-  :bind (("<C-S-up>" . move-text-up)
-         ("<C-S-down>" . move-text-down)))
-
-;; syntax checking and linting
-(use-package flycheck
-  :ensure t
-  :diminish ""
-  :init
-  (progn
-    (setq flycheck-indication-mode 'left-fringe)
-    ;; disable the annoying doc checker
-    (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
-  :config
-  (global-flycheck-mode 1))
 
 ;;
 ;; -- Function --
