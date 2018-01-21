@@ -217,7 +217,7 @@
     (ido-vertical-mode 1)
     (setq ido-vertical-define-keys #'C-n-and-C-p-only)))
 
-(use-package ido-ubiquitous
+(use-package ido-completing-read+
   :ensure t
   :config
   (ido-ubiquitous-mode 1))
@@ -249,7 +249,7 @@
   :mode (("README\\.md\\'" . gfm-mode)
 	 ("\\.md\\'" . markdown-mode)
 	 ("\\.markdown\\'" . markdown-mode))
-    :init (setq markdown-command "multimarkdown"))
+  :init (setq markdown-command "multimarkdown"))
 
 ;; YAML files
 (use-package yaml-mode
