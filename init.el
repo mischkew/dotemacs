@@ -74,7 +74,7 @@
        ("9b1c580339183a8661a84f5864a6c363260c80136bd20ac9f00d7e1d662e936a" "a94f1a015878c5f00afab321e4fef124b2fc3b823c8ddd89d360d710fc2bddfc" "b59d7adea7873d58160d368d42828e7ac670340f11f36f67fa8071dbf957236a" default)))
   '(package-selected-packages
      (quote
-       (disable-mouse flycheck move-text magit elpy python-mode markdown-mode dockerfile-mode smex ido-ubiquitous ido-vertical-mode flx-ido git-gutter-fringe fringe-helper aggressive-indent editorconfig airline-themes paradox github-theme use-package))))
+       (delight pyenv-mode-auto pyenv-mode yaml-mode disable-mouse flycheck move-text magit elpy python-mode markdown-mode dockerfile-mode smex ido-ubiquitous ido-vertical-mode flx-ido git-gutter-fringe fringe-helper aggressive-indent editorconfig airline-themes paradox github-theme use-package))))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
