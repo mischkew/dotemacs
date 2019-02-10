@@ -144,9 +144,26 @@
 ;;              (server-running-p))
 ;;     (server-start)))
 
-;; save sessions and buffers
-(desktop-save-mode 1)
-(setq desktop-restore-eager 5)
+;; use desktop files to save sessions and buffers, but
+;; handle stale desktop lock files correctly
+;; https://emacs.stackexchange.com/a/31622
+(require 'desktop)
+(defun my-remove-stale-lock-file (dir)
+  (let ((pid (desktop-owner dir)))
+    (when pid
+      (let ((infile nil)
+            (destination nil)
+            (display nil))
+        (unless (= (call-process "ps" infile destination display "-p"
+                                 (number-to-string pid)) 0)
+          (let ((lock-fn (desktop-full-lock-name dir)))
+            (delete-file lock-fn)))))))
+
+(let ((dir "/home/sven/emacs-desktop"))
+  (my-remove-stale-lock-file dir)
+  (setq desktop-path (list dir))
+  (desktop-save-mode 1))
+(desktop-read)
 
 (add-hook 'prog-mode-hook 'linum-mode)	       ; show line numbers
 (setq linum-format "%4d \u2502 ")	       ; add space between numbers and code
