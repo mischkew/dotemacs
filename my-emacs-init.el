@@ -163,7 +163,6 @@
   (my-remove-stale-lock-file dir)
   (setq desktop-path (list dir))
   (desktop-save-mode 1))
-(desktop-read)
 
 (add-hook 'prog-mode-hook 'linum-mode)	       ; show line numbers
 (setq linum-format "%4d \u2502 ")	       ; add space between numbers and code
