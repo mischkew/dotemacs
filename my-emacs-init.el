@@ -19,15 +19,13 @@
 ;; set emacs exec path
 (setq exec-path (cons "~/.pyenv/shims" exec-path))
 
-;; github theme (light)
-(use-package github-theme
-  :ensure t)
-
-;; doom theme (dark)
-;; TODO
+;; themes
+(use-package github-theme :ensure t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/atom-one-dark-theme/")
 
 ;; set theme depending on your mood
 (load-theme 'github t)
+(load-theme 'atom-one-dark t)
 
 ;; turn off the bell
 (setq ring-bell-function 'ignore)

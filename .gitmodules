@@ -1,3 +1,6 @@
 [submodule "vendor/flycheck-local-flake8"]
 	path = vendor/flycheck-local-flake8
 	url = https://github.com/rmuslimov/flycheck-local-flake8
+[submodule "vendor/atom-one-dark-theme"]
+	path = vendor/atom-one-dark-theme
+	url = https://github.com/jonathanchu/atom-one-dark-theme
