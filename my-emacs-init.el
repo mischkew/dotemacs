@@ -159,7 +159,7 @@
           (let ((lock-fn (desktop-full-lock-name dir)))
             (delete-file lock-fn)))))))
 
-(let ((dir "/home/sven/emacs-desktop"))
+(let ((dir "/home/sven/.emacs.d/"))
   (my-remove-stale-lock-file dir)
   (setq desktop-path (list dir))
   (desktop-save-mode 1))
