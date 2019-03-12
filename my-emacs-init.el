@@ -21,7 +21,7 @@
 
 ;; themes
 (use-package github-theme :ensure t)
-(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/atom-one-dark-theme/")
+(use-package atom-one-dark-theme :ensure t)
 
 ;; set theme depending on your mood
 ;; (load-theme 'github t)
