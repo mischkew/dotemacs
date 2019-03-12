@@ -297,6 +297,15 @@
     (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
     (add-hook 'lisp-mode-hook #'aggressive-indent-mode)))
 
+;; slime for lisp debugging etc
+(use-package slime
+  :ensure t
+  :init
+  (progn
+    (setq inferior-lisp-program "/home/linuxbrew/.linuxbrew/bin/sbcl")
+    (setq slime-contribs '(slime-fancy))))
+
+;; smartparens and never forget parentheses again :)
 
 ;;
 ;; -- Major Modes --
