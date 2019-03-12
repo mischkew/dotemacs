@@ -24,7 +24,7 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/atom-one-dark-theme/")
 
 ;; set theme depending on your mood
-(load-theme 'github t)
+;; (load-theme 'github t)
 (load-theme 'atom-one-dark t)
 
 ;; turn off the bell
