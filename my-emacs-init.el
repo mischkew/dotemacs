@@ -166,6 +166,8 @@
 (setq linum-format "%4d \u2502 ")	       ; add space between numbers and code
 (add-hook 'prog-mode-hook 'column-number-mode) ; show column numbers
 
+(use-package autorevert
+  :delight auto-revert-mode)
 
 ;;
 ;; -- Minor Modes --
@@ -268,17 +270,6 @@
   :config
   (global-flycheck-mode 1))
 
-;; -- General Coding --
-
-;; aggressive-indent
-;; Keeps code correctly indented during editing.
-(use-package aggressive-indent
-  :ensure t
-  :commands aggressive-indent-mode
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-  (add-hook 'lisp-mode-hook #'aggressive-indent-mode))
-
 ;; -- Python --
 
 (use-package pyenv-mode
@@ -296,8 +287,16 @@
 
 ;; -- Lisp --
 
-(use-package autorevert
-  :delight auto-revert-mode)
+;; aggressive-indent
+;; Keeps code correctly indented during editing.
+(use-package aggressive-indent
+  :ensure t
+  :commands aggressive-indent-mode
+  :init
+  (progn
+    (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+    (add-hook 'lisp-mode-hook #'aggressive-indent-mode)))
+
 
 ;;
 ;; -- Major Modes --
