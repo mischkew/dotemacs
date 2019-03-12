@@ -306,6 +306,12 @@
     (setq slime-contribs '(slime-fancy))))
 
 ;; smartparens and never forget parentheses again :)
+(use-package smartparens
+  :ensure t
+  :init
+  (progn
+    (add-hook 'emacs-lisp-mode-hook #'smartparens)
+    (add-hook 'lisp-mode-hook #'smartparens)))
 
 ;;
 ;; -- Major Modes --
