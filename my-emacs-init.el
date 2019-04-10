@@ -298,15 +298,17 @@
   :init
   (progn
     (setq inferior-lisp-program "/home/linuxbrew/.linuxbrew/bin/sbcl")
-    (setq slime-contribs '(slime-fancy))))
+    (setq slime-contribs '(slime-fancy))
+    (add-hook 'lisp-mode-hook (lambda() (slime-mode t)))
+    (load (expand-file-name "~/quicklisp/slime-helper.el"))))
 
 ;; smartparens and never forget parentheses again :)
 (use-package smartparens
   :ensure t
   :init
   (progn
-    (add-hook 'emacs-lisp-mode-hook #'smartparens)
-    (add-hook 'lisp-mode-hook #'smartparens)))
+    (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
+    (add-hook 'lisp-mode-hook #'smartparens-mode)))
 
 ;;
 ;; -- Major Modes --
