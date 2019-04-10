@@ -247,12 +247,6 @@
   :init
   (smex-initialize))
 
-(use-package disable-mouse
-  :ensure t
-  :delight global-disable-mouse-mode
-  :init
-  (global-disable-mouse-mode))
-
 ;; move regions or lines up/ down
 (use-package move-text
   :ensure t
