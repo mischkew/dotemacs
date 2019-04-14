@@ -47,6 +47,7 @@ install_emacs_packages() {
     echo "Install non-melpa emacs packages from GitHub"
     git submodule update --init vendor/flycheck-local-flake8
     git submodule update --init vendor/atom-one-dark-theme
+    git submodule update --init vendor/slime-repl-ansi-color
     echo "$DONE"
 }
 

@@ -4,3 +4,6 @@
 [submodule "atom-one-dark-theme"]
 	path = vendor/atom-one-dark-theme
 	url = https://github.com/mischkew/atom-one-dark-theme
+[submodule "vendor/slime-repl-ansi-color"]
+	path = vendor/slime-repl-ansi-color
+	url = https://github.com/enriquefernandez/slime-repl-ansi-color

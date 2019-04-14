@@ -298,8 +298,9 @@
   :init
   (progn
     (setq inferior-lisp-program "/home/linuxbrew/.linuxbrew/bin/sbcl")
-    (setq slime-contribs '(slime-fancy))
-    (add-hook 'lisp-mode-hook (lambda() (slime-mode t)))
+    (add-to-list 'load-path "~/.emacs.d/vendor/slime-repl-ansi-color")
+    (setq slime-contribs '(slime-fancy slime-repl-ansi-color))
+    (add-hook 'lisp-mode-hook #'slime-mode)
     (load (expand-file-name "~/quicklisp/slime-helper.el"))))
 
 ;; smartparens and never forget parentheses again :)
