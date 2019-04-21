@@ -174,6 +174,15 @@
 ;; -- Minor Modes --
 ;;
 
+;; multiple cursors like VSCode and Atom
+;; custom functionality for marking whole words before multiple cursors is
+;; defined in the end of this file
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-c C-n" . 'mc/mark-next-like-this)
+	  ("C-c C-p" . 'mc/mark-previous-like-this)
+	  ("s-g" . 'mc/mark-all-like-this)))
+
 ;; package manager
 (use-package paradox
   :ensure t
@@ -395,9 +404,86 @@
   (interactive)
   (kill-buffer (buffer-name)))
 
+;; https://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/
+(defun smarter-move-beginning-of-line (arg)
+  "Move point back to indentation of beginning of line.
+
+Move point to the first non-whitespace character on this line.
+If point is already there, move to the beginning of the line.
+Effectively toggle between the first non-whitespace character and
+the beginning of the line.
+
+If ARG is not nil or 1, move forward ARG - 1 lines first.  If
+point reaches the beginning or end of the buffer, stop there."
+  (interactive "^p")
+  (setq arg (or arg 1))
+
+  ;; Move lines first
+  (when (/= arg 1)
+    (let ((line-move-visual nil))
+      (forward-line (1- arg))))
+
+  (let ((orig-point (point)))
+    (back-to-indentation)
+    (when (= orig-point (point))
+      (move-beginning-of-line 1))))
+
+;; https://emacs.stackexchange.com/a/35072
+(defun mark-whole-word (&optional arg allow-extend)
+  "Like `mark-word', but selects whole words and skips over whitespace.
+If you use a negative prefix arg then select words backward.
+Otherwise select them forward.
+
+If cursor starts in the middle of word then select that whole word.
+
+If there is whitespace between the initial cursor position and the
+first word (in the selection direction), it is skipped (not selected).
+
+If the command is repeated or the mark is active, select the next NUM
+words, where NUM is the numeric prefix argument.  (Negative NUM
+selects backward.)"
+  (interactive "P\np")
+  (let ((num  (prefix-numeric-value arg)))
+    (unless (eq last-command this-command)
+      (if (natnump num)
+	(skip-syntax-forward "\\s-")
+        (skip-syntax-backward "\\s-")))
+    (unless (or (eq last-command this-command)
+	      (if (natnump num)
+		(looking-at "\\b")
+		(looking-back "\\b")))
+      (if (natnump num)
+	(left-word)
+        (right-word)))
+    (mark-word arg allow-extend)))
+
+;; this function is added to mc/cmds-to-run-once in the .mc-lists file
+(defun mark-whole-word-or-mark-next-like-this (arg)
+  (interactive "p")
+  (if (use-region-p)
+    (mc/mark-next-like-this arg)
+    (mark-whole-word arg)))
+
+;; this function is added to mc/cmds-to-run-once in the .mc-lists file
+(defun mark-whole-word-or-mark-previous-like-this (arg)
+  (interactive "p")
+  (if (use-region-p)
+    (mc/mark-previous-like-this arg)
+    (mark-whole-word arg)))
+
 ;;
 ;; -- Key Bindings --
 ;;
+
+;; move to the beginning of the indentation first
+(global-set-key [remap move-beginning-of-line] 'smarter-move-beginning-of-line)
+
+;; mark the whole world instead the end of the word
+(global-set-key [remap mark-word] 'mark-whole-word)
+
+;; mark whole world and then select multiple occurrences
+(global-set-key (kbd "s-d") 'mark-whole-word-or-mark-next-like-this)
+(global-set-key (kbd "s-D") 'mark-whole-word-or-mark-previous-like-this)
 
 ;; duplicate the current line
 (global-set-key (kbd "C-c d") #'duplicate-line)

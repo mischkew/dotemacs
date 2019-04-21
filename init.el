@@ -74,7 +74,7 @@
        ("a8636379e484d77d0001e1b2153e23543e07f16758b2a822f98245aee561992e" "1f85df8aab246edb1013b879c8c109046710d5cb19000a6e40df8a6bfc62b7b5" "538717718df6d23d129d928a6c5e003cd086b1670113e83280000f4c5cdb0705" "8cde151de43e9677e5bba110aa6e368bcc3479ee4849e4a7e352a3cb8a036a43" "4931a04d28467edb8aef9027709279d6c914560025fa30810b82b6d69e6b7103" "9b1c580339183a8661a84f5864a6c363260c80136bd20ac9f00d7e1d662e936a" "a94f1a015878c5f00afab321e4fef124b2fc3b823c8ddd89d360d710fc2bddfc" "b59d7adea7873d58160d368d42828e7ac670340f11f36f67fa8071dbf957236a" default)))
   '(package-selected-packages
      (quote
-       (smartparens slime delight pyenv-mode-auto pyenv-mode yaml-mode disable-mouse flycheck move-text magit elpy python-mode markdown-mode dockerfile-mode smex ido-ubiquitous ido-vertical-mode flx-ido git-gutter-fringe fringe-helper aggressive-indent editorconfig airline-themes paradox github-theme use-package)))
+       (multiple-cursors smartparens slime delight pyenv-mode-auto pyenv-mode yaml-mode disable-mouse flycheck move-text magit elpy python-mode markdown-mode dockerfile-mode smex ido-ubiquitous ido-vertical-mode flx-ido git-gutter-fringe fringe-helper aggressive-indent editorconfig airline-themes paradox github-theme use-package)))
   '(tetris-x-colors
      [[229 192 123]
        [97 175 239]
