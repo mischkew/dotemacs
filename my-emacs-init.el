@@ -471,6 +471,28 @@ selects backward.)"
     (mc/mark-previous-like-this arg)
     (mark-whole-word arg)))
 
+;; remote development machines
+
+;; https://emacs.stackexchange.com/a/18280
+(defun add-ssh-agent-to-tramp ()
+  (cl-pushnew '("-A")
+              (cadr (assoc 'tramp-login-args
+                           (assoc "ssh" tramp-methods)))
+    :test #'equal))
+
+(add-ssh-agent-to-tramp)
+
+;; disable tramp control master and use local control master with reusable
+;; socket setup
+(setq tramp-ssh-controlmaster-options "")
+
+;; https://stackoverflow.com/questions/20624024/what-is-the-best-way-to-open-remote-files-with-emacs-and-ssh
+(defun connect-aws-bundling ()
+  "Connects to remote aws machine for bundling. See ~/.ssh/config for more
+   details."
+  (interactive)
+  (dired "/ubuntu@bundling:/home/ubuntu/"))
+
 ;;
 ;; -- Key Bindings --
 ;;
