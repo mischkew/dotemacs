@@ -281,25 +281,7 @@
   :init
   (pyenv-mode))
 
-;; load the local setup.cfg for flake8 python checking
-(use-package flycheck-local-flake8
-  :load-path "vendor/flycheck-local-flake8"
-  :init
-  (require 'flycheck-local-flake8)
-  (add-hook 'flycheck-before-syntax-check-hook
-	    #'flycheck-local-flake8/flycheck-virtualenv-set-python-executables 'local))
-
 ;; -- Lisp --
-
-;; aggressive-indent
-;; Keeps code correctly indented during editing.
-(use-package aggressive-indent
-  :ensure t
-  :commands aggressive-indent-mode
-  :init
-  (progn
-    (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-    (add-hook 'lisp-mode-hook #'aggressive-indent-mode)))
 
 ;; slime for lisp debugging etc
 (use-package slime
